@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="vV9oKVPnr90vWxIMl0BkNz4vNZUKA3AOS8wGE+CidhAZCPGY/YtwjJB/sOnarcBfx4yyvrQKn/3mysag76I62Q==" />
+<title>
+Logging In With SSH - 
+CSE taggi
+</title>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+<link rel="stylesheet" media="all" href="/assets/application-56c7e86a0a92c54c45859cb7c1d2480e66c981e57f8ca60a6c0324e9f2ccab19.css" />
+<link rel="stylesheet" media="print" href="/assets/print-d8a70081c04cd40e132d77555329b6b2532c52a5e804f9d36327019ba7d294b3.css" />
+<script src="/assets/application-fac6418038091bb565f543165fd51421ae7442d9885e8aaecccf14317da0f1a4.js"></script>
+</head>
+<body>
+<div class='contents' id='header'>
+<div id='header-top'>
+<span id='logo'>
+<a title="Home" href="http://www.unsw.edu.au"><img src="/assets/UNSW-5b5dfce0b7cee0dea14d5e32f1d9ed3edade0425d980353725ed3df255af7fc7.png" alt="Unsw" /></a>
+</span>
+</div>
+<hr>
+<span id='department'>
+<a href="https://www.engineering.unsw.edu.au/computer-science-engineering/">Computer Science and Engineering</a>
+&gt;
+<a href="https://taggi.cse.unsw.edu.au">Taggi</a>
+</span>
+</div>
+<div id='navbar'>
+<div class='contents'>
+<ul>
+<li><a title="Home" href="https://taggi.cse.unsw.edu.au/FAQ/"><img src="/assets/home-22299d5bf03d9db9240c491c9d3142e4edadb871c38b97b5e41023e11dc9aaeb.png" alt="Home" /></a></li>
+<li><a href="/Policies/">Policies</a></li>
+<li><a href="/Vlab/">Vlab</a></li>
+<li><a href="/VLAB/">VLAB</a></li>
+<li><a href="/vlab/">vlab</a></li>
+</ul>
+<div id='login'><a data-target="#form" data-remote="true" href="/form/login/">Log in</a>
+</div>
+<div class='clearfix'></div>
+</div>
+</div>
+<div id='page-body'>
+<form id="search" class="contents" action="https://taggi.cse.unsw.edu.au/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+<input type="text" name="words" id="words" placeholder="Search taggi" />
+</form>
+
+<section id='title'>
+<div id='page-info'>
+</div>
+<h1>Logging In With SSH</h1>
+</section>
+<section id='form' style='display:none'></section>
+<section id='content'>
+<article>
+<toc/>
+<h1>CSE Login Servers</h1>
+<p>CSE run a number of login servers, allowing you to make use of CSE computing resources away from the CSE network.</p>
+<p>You can connect to these servers to access your home directory and run programs in the CSE environment.</p>
+<p>There are several servers, designed for different purposes:</p>
+<dl>
+  <dt>login.cse.unsw.edu.au</dt>
+  <dd>General-purpose computing</dd>
+
+  <dt>williams.cse.unsw.edu.au</dt>
+  <dd>Simulations and long-running processes</dd>
+
+  <dt>grieg.cse.unsw.edu.au</dt>
+  <dd>Databases, appservers, etc. </dd>
+
+</dl>
+<aside class="note">
+  <p>Grieg is reserved for students on specific courses.</p>
+  <p>If you believe you should have access to Grieg but don't, ask your lecturer or supervisor to request it for you.</p>
+</aside>
+<p>All CSE login servers use your UNSW <b>zID</b> and <b>zPass</b> for authentication.</p>
+
+<h1>Using SSH</h1>
+<h2>From Windows</h2>
+<p>Windows does not include an SSH client by default, so you will need to install <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a></p>
+<p>To connect: run PuTTY, enter the appropriate server (for instance <tt>login.cse.unsw.edu.au</tt>) into the 'Host Name' box, and click Open.</p>
+<p>Log in with your zID and zPass when prompted, and you will be presented with a terminal screen that you can use, just the same as the terminal on a lab computer.</p>
+
+<h2>From macOS or Linux</h2>
+<p>macOS and Linux both include built-in SSH clients, so there's no need to install extra software.</p>
+<p>To connect, simply open a Terminal window and run <tt>ssh z1234567@login.cse.unsw.edu.au</tt>, substituting your own zID and the server name as appropriate.</p>
+
+<h1>Running graphical (GUI) programs over SSH</h1>
+<p>By default, SSH clients only support text-mode programs; anything that needs to open its own window on your desktop (such as Gedit) will not work.</p>
+<p>However, there is a way to enable this - depending on your operating system, it may take a little setting up.</p>
+<p>Running graphical programs over SSH can be fairly slow (especially over a slow internet connection), so we recommend that you don't use this as your main workflow. 
+
+<h2>From Windows</h2>
+<p>To run graphical programs on Windows, you will need to <a href="http://taggi.cse.unsw.edu.au/FAQ/Install_an_X_server/">install an X server</a></p>
+<p>Follow the instructions there for installing VcXsrv and configuring PuTTY.</p>
+<p>If you're running Windows Services for Linux, see the <a href="http://taggi.cse.unsw.edu.au/FAQ/Windows_Services_For_Linux/#Running_graphical_programs_under_WSL">instructions</a> for configuring your <tt>DISPLAY</tt> variable.</p>
+
+<h2>From macOS</h2>
+<p>You will need to install the <a href="https://www.xquartz.org/">XQuartz</a> X server.</p>
+<p>Once it's installed, just add the <tt>-Y</tt> parameter to your SSH command, eg. <tt>ssh -Y z1234567@login.cse.unsw.edu.au</tt></p>
+
+<h2>From Linux</h2>
+<p>Linux is the simplest of all, as an X server is installed by default on most distributions.</p>
+<p>Just add the <tt>-Y</tt> parameter: <tt>ssh -Y z1234567@login.cse.unsw.edu.au</tt></p>
+
+<h1>Persistent logins</h1>
+<p>Normally, when you close your SSH client (or lose your network connection), any programs running in your shell will also be closed.</p>
+<p>This is what you want most of the time, but sometimes it's useful to be able to disconnect and reconnect to the same session.</p>
+<p>For text-mode programs, the easiest way to do this is with the <tt>screen</tt> command. See <a href="https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/">this tutorial</a> for details.</p>
+<p>If you're working with graphical programs, the easiest way to do this is to use <a href="http://taggi.cse.unsw.edu.au/FAQ/VNC/">VNC</a> instead.</p>
+
+
+<footer>
+Last edited by pmr 12/02/2019
+</footer>
+</article>
+
+</section>
+<section id='downloads' style='display: none;'>
+<h1>Downloads on this page:</h1>
+<ul>
+
+</ul>
+</section>
+<section id='tags' style='display: none;'>
+<h1>Tags for this page:</h1>
+
+
+</section>
+
+</div>
+</body>
+</html>
